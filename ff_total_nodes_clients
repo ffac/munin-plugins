@@ -1,0 +1,24 @@
+#!/bin/sh
+
+case $1 in
+   config)
+        cat <<'EOM'
+graph_title Total Number of Clients and Nodes
+graph_vlabel Node/Client Count
+graph_category Freifunk
+graph_args --base 1000 -l 0
+graph_scale no
+clients.label Clients
+clients.info Number of online Clients
+nodes.label Nodes
+nodes.info Number of online Nodes
+
+EOM
+        exit 0;;
+esac
+
+printf "clients.value "
+cat /opt/freifunk/data/nodes.json | jq '[.nodes[].clientcount] | add'
+printf "nodes.value "
+cat /opt/freifunk/data/nodes.json | jq '.nodes[].flags.online|true'|wc -l
+
