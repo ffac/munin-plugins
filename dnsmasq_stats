@@ -1,0 +1,18 @@
+#!/bin/sh
+
+case $1 in
+   config)
+        cat <<'EOM'
+graph_title IPv4 leases given
+graph_vlabel lease count
+graph_category dnsmasq
+graph_args --base 1000 -l 0
+graph_scale no
+IPv4leases.label IPv4 lease count
+IPv4leases.info Reserved IPv4 Adresses
+EOM
+        exit 0;;
+esac
+
+printf "IPv4leases.value "
+cat /var/lib/misc/dnsmasq.leases | wc -l
