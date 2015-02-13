@@ -20,5 +20,5 @@ esac
 printf "clients.value "
 cat /opt/freifunk/data/nodes.json | jq '[.nodes[].clientcount] | add'
 printf "nodes.value "
-cat /opt/freifunk/data/nodes.json | jq '.nodes[].flags.online|true'|wc -l
+cat /opt/freifunk/data/nodes.json | jq '.nodes[].flags.online|select(. ==true)' | wc -l
 
