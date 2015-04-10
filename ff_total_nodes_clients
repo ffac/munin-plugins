@@ -18,7 +18,7 @@ EOM
 esac
 
 printf "clients.value "
-jq '[.nodes[].clientcount] | add' /opt/freifunk/data/nodes.json
+jq '[.nodes[].clientcount] | add' /opt/freifunk/data/legacy/nodes.json
 printf "nodes.value "
 jq '.nodes|map(select(.flags.online ==true and .flags.gateway ==false))|length' /opt/freifunk/data/nodes.json
 
