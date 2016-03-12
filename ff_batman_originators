@@ -1,0 +1,43 @@
+#!/bin/sh
+
+case $1 in
+   config)
+        cat <<'EOM'
+graph_title Total Number of batman originator
+graph_vlabel originator count
+graph_category Freifunk
+graph_args --base 1000 -l 0
+graph_scale no
+default.label default
+default.info Number of active originator default segment
+segment-02.label Segment-02
+segment-02.info Number of active originator in segment 02
+segment-03.label Segment-03
+segment-03.info Number of active originator in segment 03
+segment-04.label Segment-04
+segment-04.info Number of active originator in segment 04
+segment-05.label Segment-05
+segment-05.info Number of active originator in segment 05
+segment-06.label Segment-06
+segment-06.info Number of active originator in segment 06
+segment-07.label Segment-07
+segment-07.info Number of active originator in segment 07
+
+EOM
+        exit 0;;
+esac
+
+printf "default.value "
+expr `cat /sys/kernel/debug/batman_adv/bat0/originators | wc -l` - 7
+printf "segment-02.value "
+expr `cat /sys/kernel/debug/batman_adv/bat02/originators | wc -l` - 7
+printf "segment-03.value "
+expr `cat /sys/kernel/debug/batman_adv/bat03/originators | wc -l` - 7
+printf "segment-04.value "
+expr `cat /sys/kernel/debug/batman_adv/bat04/originators | wc -l` - 7
+printf "segment-05.value "
+expr `cat /sys/kernel/debug/batman_adv/bat05/originators | wc -l` - 7
+printf "segment-06.value "
+expr `cat /sys/kernel/debug/batman_adv/bat06/originators | wc -l` - 7
+printf "segment-07.value "
+expr `cat /sys/kernel/debug/batman_adv/bat07/originators | wc -l` - 7

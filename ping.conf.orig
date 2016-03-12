@@ -1,0 +1,27 @@
+#[ping*]
+#env.hosts 10.5.0.1,10.5.0.2,10.5.0.3,10.5.0.4,10.5.0.7
+#env.names node01,node02,node03,node04,node07
+#env.ping_args "-c 10 -w 1"
+#env.fork yes
+
+[ping_batman*]
+<<<<<<< HEAD
+env.hosts 10.5.0.1,10.5.0.2,10.5.0.3,10.5.0.4,10.5.0.5,10.5.0.6
+env.names node01,node02,node03,node04,node05,node06
+=======
+env.hosts 10.5.0.1,10.5.0.2,10.5.0.3,10.5.0.4,10.5.0.5,10.5.0.7,8.8.8.8,heise.de
+env.names node01,node02,node03,node04,node05,node07,google-dns,heise
+>>>>>>> 14844af5e8a7a4eef055e41755fd1555a20a8b3d
+env.ping_args "-c 10 -w 1"
+env.fork yes
+
+[ping_eth0*]
+<<<<<<< HEAD
+env.hosts 01.nodes.freifunk-aachen.de,02.nodes.freifunk-aachen.de,03.nodes.freifunk-aachen.de,04.nodes.freifunk-aachen.de,05.nodes.freifunk-aachen.de,06.nodes.freifunk-aachen.de,8.8.8.8,heise.de
+env.names node01,node02,node03,node04,node05,node06,google-dns,heise
+=======
+env.hosts 01.nodes.freifunk-aachen.de,02.nodes.freifunk-aachen.de,03.nodes.freifunk-aachen.de,04.nodes.freifunk-aachen.de,05.nodes.freifunk-aachen.de,07.nodes.freifunk-aachen.de,8.8.8.8,heise.de
+env.names node01,node02,node03,node04,node05,node07,google-dns,heise
+>>>>>>> 14844af5e8a7a4eef055e41755fd1555a20a8b3d
+env.ping_args "-c 10 -w 1"
+env.fork yes
